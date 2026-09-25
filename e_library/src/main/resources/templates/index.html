@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>E-Library Management System</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            height: 70px;
+            background: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 40px;
+
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+
+            min-height: 400px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(37, 99, 235, 0.85),
+                    rgba(59, 130, 246, 0.75)
+                );
+
+            color: white;
+
+            padding: 50px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background: white;
+            color: #2563eb;
+
+            padding: 12px 25px;
+
+            border: none;
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #f3f4f6;
+        }
+
+        /* ================= SECTIONS ================= */
+
+        .section {
+
+            padding: 50px;
+
+            max-width: 1200px;
+
+            margin: auto;
+        }
+
+        .section h2 {
+            text-align: center;
+
+            margin-bottom: 30px;
+
+            color: #1e3a8a;
+        }
+
+        /* ================= CARDS ================= */
+
+        .cards {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 25px;
+        }
+
+        .card {
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.08);
+
+            text-align: center;
+        }
+
+        .card .icon {
+
+            font-size: 40px;
+
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #6b7280;
+
+            margin-bottom: 20px;
+        }
+
+        /* ================= FORMS ================= */
+
+        .form-box {
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.08);
+
+            margin-bottom: 30px;
+        }
+
+        .form-box input,
+        .form-box select {
+
+            width: 100%;
+
+            padding: 12px;
+
+            margin: 8px 0;
+
+            border: 1px solid #d1d5db;
+
+            border-radius: 6px;
+        }
+
+        .form-box button {
+
+            margin-top: 10px;
+
+            padding: 11px 20px;
+
+            background: #2563eb;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+        }
+
+        .form-box button:hover {
+            background: #1d4ed8;
+        }
+
+        /* ================= TABLE ================= */
+
+        .table-box {
+
+            background: white;
+
+            padding: 20px;
+
+            border-radius: 12px;
+
+            overflow-x: auto;
+            overflow-y: visible;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+
+            padding: 12px;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            text-align: left;
+        }
+
+        th {
+
+            background: #eff6ff;
+
+            color: #1e3a8a;
+        }
+
+        /* ================= ACTION BUTTONS ================= */
+
+        .delete-btn {
+
+            background: #dc2626;
+
+            color: white;
+
+            border: none;
+
+            padding: 7px 12px;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            position: relative;
+        }
+
+        .delete-btn[title] {
+            text-decoration: none;
+        }
+
+        .delete-btn::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            left: 50%;
+            bottom: calc(100% + 8px);
+            transform: translateX(-50%) translateY(4px);
+            background: #111827;
+            color: white;
+            padding: 6px 9px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .2s ease, transform .2s ease;
+            z-index: 10;
+        }
+
+        .delete-btn:hover::after,
+        .delete-btn:focus-visible::after {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .delete-btn:hover {
+            background: #b91c1c;
+        }
+
+        .edit-btn {
+
+            background: #16a34a;
+
+            color: white;
+
+            border: none;
+
+            padding: 7px 12px;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            margin-right: 5px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            background: #111827;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+
+            margin-top: 40px;
+        }
+
+        /* ================= HIDE SECTIONS ================= */
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Refined workspace styling */
+        body {
+            background: #f4f7f1;
+            color: #16221c;
+            font-family: Manrope, "Segoe UI", sans-serif;
+        }
+
+        header {
+            height: 76px;
+            padding: 0 clamp(20px, 5vw, 64px);
+            background: #1e4938;
+            box-shadow: 0 8px 24px rgba(25, 55, 39, .14);
+        }
+
+        .logo { color: #b7d97b; letter-spacing: -.04em; }
+        nav { gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+        nav a { color: #d8e7d8; padding: 9px 12px; border-radius: 8px; transition: background .2s, color .2s; }
+        nav a:hover { color: #16221c; background: #b7d97b; }
+
+        .hero {
+            min-height: 430px;
+            justify-content: flex-start;
+            text-align: left;
+            padding: clamp(50px, 8vw, 100px) clamp(24px, 10vw, 150px);
+            background: linear-gradient(120deg, #1e4938 0%, #397052 56%, #b7d97b 160%);
+        }
+
+        .hero h1 { max-width: 650px; font-size: clamp(40px, 6vw, 72px); letter-spacing: -.07em; line-height: .98; }
+        .hero p { max-width: 560px; color: #e4f1df; line-height: 1.6; }
+        .btn { color: #1e4938; border-radius: 9px; padding: 12px 18px; }
+        .section { max-width: 1280px; padding: clamp(32px, 5vw, 64px) 24px; }
+        .section h2 { color: #1e4938; letter-spacing: -.05em; font-size: clamp(24px, 4vw, 34px); }
+        .cards { gap: 16px; }
+        .card { border: 1px solid #dce5df; border-radius: 14px; padding: 22px; text-align: left; transition: transform .2s, box-shadow .2s; }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(25, 55, 39, .12); }
+        .card .icon { font-size: 32px; }
+        .form-box, .table-box { border: 1px solid #dce5df; border-radius: 14px; box-shadow: 0 12px 30px rgba(25, 55, 39, .07); }
+        .form-box { padding: 24px; }
+        .form-box h3, .table-box h3 { color: #1e4938; margin-bottom: 12px; }
+        .form-box input, .form-box select { width: calc(50% - 8px); margin: 6px 4px; padding: 12px; border-color: #dce5df; }
+        .form-box button { background: #1e4938; border-radius: 8px; }
+        .form-box button:hover { background: #397052; }
+        th { background: #edf5e0; color: #1e4938; }
+        td { padding: 14px 12px; }
+        footer { background: #16221c; }
+
+        @media (max-width: 700px) {
+            header { height: auto; min-height: 76px; padding: 16px 20px; align-items: flex-start; gap: 12px; flex-direction: column; }
+            nav { justify-content: flex-start; }
+            .form-box input, .form-box select { width: 100%; margin: 6px 0; }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================================================= -->
+<!-- HEADER -->
+<!-- ================================================= -->
+
+<header>
+
+    <div class="logo">
+        📚 E-Library
+    </div>
+
+    <nav>
+
+        <a onclick="showPage('home')">
+            Home
+        </a>
+
+        <a onclick="showPage('users')">
+            Users
+        </a>
+
+        <a onclick="showPage('books')">
+            Books
+        </a>
+
+        <a onclick="showPage('categories')">
+            Categories
+        </a>
+
+        <a onclick="showPage('licenses')">
+            Licenses
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- ================================================= -->
+<!-- HOME -->
+<!-- ================================================= -->
+
+<div id="home" class="page active">
+
+    <section class="hero">
+
+        <div>
+
+            <h1>
+                Welcome to E-Library
+            </h1>
+
+            <p>
+                Public Electronic Library and
+                E-Book Licensing Management System
+            </p>
+
+            <button
+                class="btn"
+                onclick="showPage('books')">
+
+                Explore Books
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <h2>
+            Library Management
+        </h2>
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <div class="icon">
+                    👤
+                </div>
+
+                <h3>
+                    Users
+                </h3>
+
+                <p>
+                    Manage library users
+                </p>
+
+                <button
+                    class="btn"
+                    onclick="showPage('users')">
+
+                    Manage Users
+
+                </button>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    📖
+                </div>
+
+                <h3>
+                    Books
+                </h3>
+
+                <p>
+                    Manage electronic books
+                </p>
+
+                <button
+                    class="btn"
+                    onclick="showPage('books')">
+
+                    Manage Books
+
+                </button>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    🗂️
+                </div>
+
+                <h3>
+                    Categories
+                </h3>
+
+                <p>
+                    Organize books
+                </p>
+
+                <button
+                    class="btn"
+                    onclick="showPage('categories')">
+
+                    Categories
+
+                </button>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    🔐
+                </div>
+
+                <h3>
+                    Licenses
+                </h3>
+
+                <p>
+                    Manage e-book licenses
+                </p>
+
+                <button
+                    class="btn"
+                    onclick="showPage('licenses')">
+
+                    Licenses
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- USERS -->
+<!-- ================================================= -->
+
+<div id="users" class="page">
+
+    <section class="section">
+
+        <h2>
+            👤 User Management
+        </h2>
+
+
+        <!-- ADD USER -->
+
+        <div class="form-box">
+
+            <h3>
+                Add User
+            </h3>
+
+            <input
+                type="text"
+                id="userName"
+                placeholder="Name">
+
+            <input
+                type="email"
+                id="userEmail"
+                placeholder="Email">
+
+            <input
+                type="password"
+                id="userPassword"
+                placeholder="Password">
+
+            <input
+                type="text"
+                id="userRole"
+                placeholder="Role">
+
+            <input
+                type="text"
+                id="userStatus"
+                placeholder="Status">
+
+            <button onclick="addUser()">
+                Add User
+            </button>
+
+        </div>
+
+
+        <!-- USERS TABLE -->
+
+        <div class="table-box">
+
+            <h3>
+                Users List
+            </h3>
+
+            <br>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Name</th>
+
+                        <th>Email</th>
+
+                        <th>Role</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="userTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- BOOKS -->
+<!-- ================================================= -->
+
+<div id="books" class="page">
+
+    <section class="section">
+
+        <h2>
+            📖 Book Management
+        </h2>
+
+
+        <!-- ADD BOOK -->
+
+        <div class="form-box">
+
+            <h3>
+                Add Book
+            </h3>
+
+            <input
+                type="text"
+                id="bookTitle"
+                placeholder="Book Title">
+
+            <input
+                type="text"
+                id="bookAuthor"
+                placeholder="Author">
+
+            <input
+                type="text"
+                id="bookIsbn"
+                placeholder="ISBN">
+
+            <input
+                type="text"
+                id="bookLanguage"
+                placeholder="Language">
+
+            <input
+                type="text"
+                id="bookDescription"
+                placeholder="Description">
+
+            <input
+                type="text"
+                id="bookFileUrl"
+                placeholder="File URL">
+
+            <input
+                type="text"
+                id="bookStatus"
+                placeholder="Status">
+
+            <input
+                type="number"
+                id="bookCategoryId"
+                placeholder="Category ID">
+
+            <button onclick="addBook()">
+                Add Book
+            </button>
+
+        </div>
+
+
+        <!-- BOOK TABLE -->
+
+        <div class="table-box">
+
+            <h3>
+                Books List
+            </h3>
+
+            <br>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Title</th>
+
+                        <th>Author</th>
+
+                        <th>ISBN</th>
+
+                        <th>Language</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="bookTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- CATEGORIES -->
+<!-- ================================================= -->
+
+<div id="categories" class="page">
+
+    <section class="section">
+
+        <h2>
+            🗂️ Category Management
+        </h2>
+
+
+        <!-- ADD CATEGORY -->
+
+        <div class="form-box">
+
+            <h3>
+                Add Category
+            </h3>
+
+            <input
+                type="text"
+                id="categoryName"
+                placeholder="Category Name">
+
+            <input
+                type="text"
+                id="categoryDescription"
+                placeholder="Description">
+
+            <button onclick="addCategory()">
+                Add Category
+            </button>
+
+        </div>
+
+
+        <!-- CATEGORY TABLE -->
+
+        <div class="table-box">
+
+            <h3>
+                Categories List
+            </h3>
+
+            <br>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Name</th>
+
+                        <th>Description</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="categoryTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- LICENSES -->
+<!-- ================================================= -->
+
+<div id="licenses" class="page">
+
+    <section class="section">
+
+        <h2>
+            🔐 License Management
+        </h2>
+
+
+        <!-- CREATE LICENSE -->
+
+        <div class="form-box">
+
+            <h3>
+                Create E-Book License
+            </h3>
+
+            <input
+                type="number"
+                id="licenseUserId"
+                placeholder="User ID">
+
+            <input
+                type="number"
+                id="licenseBookId"
+                placeholder="Book ID">
+
+            <button onclick="createLicense()">
+                Create License
+            </button>
+
+        </div>
+
+
+        <!-- LICENSE TABLE -->
+
+        <div class="table-box">
+
+            <h3>
+                License List
+            </h3>
+
+            <br>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>License ID</th>
+
+                        <th>User ID</th>
+
+                        <th>Book ID</th>
+
+                        <th>Start Date</th>
+
+                        <th>Expiry Date</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="licenseTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- FOOTER -->
+<!-- ================================================= -->
+
+<footer>
+
+    <p>
+        © 2026 E-Library Management System
+    </p>
+
+</footer>
+
+
+<!-- ================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================================= -->
+
+<script>
+
+const API = "http://localhost:8080";
+
+
+/* ==========================================
+   PAGE NAVIGATION
+========================================== */
+
+function showPage(pageId) {
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page => {
+
+            page.classList.remove("active");
+
+        });
+
+
+    document
+        .getElementById(pageId)
+        .classList.add("active");
+
+
+    if (pageId === "users") {
+
+        getUsers();
+
+    }
+
+    if (pageId === "books") {
+
+        getBooks();
+
+    }
+
+    if (pageId === "categories") {
+
+        getCategories();
+
+    }
+
+    if (pageId === "licenses") {
+
+        getLicenses();
+
+    }
+
+}
+
+
+/* ==========================================
+   USERS
+========================================== */
+
+async function getUsers() {
+
+    try {
+
+        const response =
+            await fetch(API + "/users");
+
+        const users =
+            await response.json();
+
+
+        const table =
+            document.getElementById("userTable");
+
+
+        table.innerHTML = "";
+
+
+        users.forEach(user => {
+
+            table.innerHTML += `
+
+                <tr>
+
+                    <td>${user.userId}</td>
+
+                    <td>${user.name}</td>
+
+                    <td>${user.email}</td>
+
+                    <td>${user.role}</td>
+
+                    <td>${user.status}</td>
+
+                    <td>
+
+                        <button
+                            class="delete-btn"
+                            title="Delete user"
+                            data-tooltip="Delete record"
+                            aria-label="Delete user"
+                            onclick="deleteUser(${user.userId})">
+
+                            Delete
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            `;
+
+        });
+
+    }
+
+    catch(error) {
+
+        console.error(error);
+
+        alert("Cannot connect to Spring Boot");
+
+    }
+
+}
+
+
+async function addUser() {
+
+    const user = {
+
+        name:
+            document.getElementById("userName").value,
+
+        email:
+            document.getElementById("userEmail").value,
+
+        password:
+            document.getElementById("userPassword").value,
+
+        role:
+            document.getElementById("userRole").value,
+
+        status:
+            document.getElementById("userStatus").value
+
+    };
+
+
+    const response =
+        await fetch(API + "/users", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type":
+                    "application/json"
+            },
+
+            body:
+                JSON.stringify(user)
+
+        });
+
+
+    if (response.ok) {
+
+        alert("User added successfully");
+
+        getUsers();
+
+    }
+
+    else {
+
+        alert("Failed to add user");
+
+    }
+
+}
+
+
+async function deleteUser(id) {
+
+    if (!confirm("Delete this user?")) {
+        return;
+    }
+
+
+    const response =
+        await fetch(
+            API + "/users/" + id,
+            {
+                method: "DELETE"
+            }
+        );
+
+
+    if (response.ok) {
+
+        alert("User deleted");
+
+        getUsers();
+
+    }
+
+}
+
+
+/* ==========================================
+   BOOKS
+========================================== */
+
+async function getBooks() {
+
+    try {
+
+        const response =
+            await fetch(API + "/books");
+
+        const books =
+            await response.json();
+
+
+        const table =
+            document.getElementById("bookTable");
+
+
+        table.innerHTML = "";
+
+
+        books.forEach(book => {
+
+            table.innerHTML += `
+
+                <tr>
+
+                    <td>${book.bookId}</td>
+
+                    <td>${book.title}</td>
+
+                    <td>${book.author}</td>
+
+                    <td>${book.isbn}</td>
+
+                    <td>${book.language}</td>
+
+                    <td>${book.status}</td>
+
+                    <td>
+
+                        <button
+                            class="delete-btn"
+                            title="Delete book"
+                            data-tooltip="Delete record"
+                            aria-label="Delete book"
+                            onclick="deleteBook(${book.bookId})">
+
+                            Delete
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            `;
+
+        });
+
+    }
+
+    catch(error) {
+
+        console.error(error);
+
+    }
+
+}
+
+
+async function addBook() {
+
+    const book = {
+
+        title:
+            document.getElementById("bookTitle").value,
+
+        author:
+            document.getElementById("bookAuthor").value,
+
+        isbn:
+            document.getElementById("bookIsbn").value,
+
+        language:
+            document.getElementById("bookLanguage").value,
+
+        description:
+            document.getElementById("bookDescription").value,
+
+        fileUrl:
+            document.getElementById("bookFileUrl").value,
+
+        status:
+            document.getElementById("bookStatus").value,
+
+        categoryId:
+            Number(
+                document.getElementById("bookCategoryId").value
+            )
+
+    };
+
+
+    const response =
+        await fetch(API + "/books", {
+
+            method: "POST",
+
+            headers: {
+
+                "Content-Type":
+                    "application/json"
+
+            },
+
+            body:
+                JSON.stringify(book)
+
+        });
+
+
+    if (response.ok) {
+
+        alert("Book added successfully");
+
+        getBooks();
+
+    }
+
+}
+
+
+async function deleteBook(id) {
+
+    const response =
+        await fetch(
+            API + "/books/" + id,
+            {
+                method: "DELETE"
+            }
+        );
+
+
+    if (response.ok) {
+
+        alert("Book deleted");
+
+        getBooks();
+
+    }
+
+}
+
+
+/* ==========================================
+   CATEGORIES
+========================================== */
+
+async function getCategories() {
+
+    const response =
+        await fetch(API + "/categories");
+
+
+    const categories =
+        await response.json();
+
+
+    const table =
+        document.getElementById("categoryTable");
+
+
+    table.innerHTML = "";
+
+
+    categories.forEach(category => {
+
+        table.innerHTML += `
+
+            <tr>
+
+                <td>${category.categoryId}</td>
+
+                <td>${category.name}</td>
+
+                <td>${category.description}</td>
+
+                <td>
+
+                    <button>
+                        class="delete-btn"
+                        title="Delete category"
+                        data-tooltip="Delete record"
+                        aria-label="Delete category"
+                        onclick="deleteCategory(${category.categoryId})">
+
+                        Delete
+
+                    </button>
+
+                </td>
+
+            </tr>
+
+        `;
+
+    });
+
+}
+
+
+async function addCategory() {
+
+    const category = {
+
+        name:
+            document.getElementById("categoryName").value,
+
+        description:
+            document.getElementById("categoryDescription").value
+
+    };
+
+
+    const response =
+        await fetch(API + "/categories", {
+
+            method: "POST",
+
+            headers: {
+
+                "Content-Type":
+                    "application/json"
+
+            },
+
+            body:
+                JSON.stringify(category)
+
+        });
+
+
+    if (response.ok) {
+
+        alert("Category added successfully");
+
+        getCategories();
+
+    }
+
+}
+
+
+async function deleteCategory(id) {
+
+    const response =
+        await fetch(
+            API + "/categories/" + id,
+            {
+                method: "DELETE"
+            }
+        );
+
+
+    if (response.ok) {
+
+        alert("Category deleted");
+
+        getCategories();
+
+    }
+
+}
+
+
+/* ==========================================
+   LICENSES
+========================================== */
+
+async function getLicenses() {
+
+    const response =
+        await fetch(API + "/licenses");
+
+
+    const licenses =
+        await response.json();
+
+
+    const table =
+        document.getElementById("licenseTable");
+
+
+    table.innerHTML = "";
+
+
+    licenses.forEach(license => {
+
+        table.innerHTML += `
+
+            <tr>
+
+                <td>${license.licenseId}</td>
+
+                <td>${license.userId}</td>
+
+                <td>${license.bookId}</td>
+
+                <td>${license.startDate}</td>
+
+                <td>${license.expiryDate}</td>
+
+                <td>${license.status}</td>
+
+            </tr>
+
+        `;
+
+    });
+
+}
+
+
+async function createLicense() {
+
+    const userId =
+        document.getElementById(
+            "licenseUserId"
+        ).value;
+
+
+    const bookId =
+        document.getElementById(
+            "licenseBookId"
+        ).value;
+
+
+    const response =
+        await fetch(
+            API +
+            "/licenses?userId=" +
+            userId +
+            "&bookId=" +
+            bookId,
+            {
+                method: "POST"
+            }
+        );
+
+
+    if (response.ok) {
+
+        alert(
+            "License created successfully"
+        );
+
+        getLicenses();
+
+    }
+
+    else {
+
+        const error =
+            await response.text();
+
+        alert(error);
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
