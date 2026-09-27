@@ -13,348 +13,27 @@
     <style>
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
 
         body {
-            background: #f4f7fb;
-            color: #1f2937;
+            font-family: Arial, sans-serif;
+            background: #f7f6f1;
+            color: #26342d;
         }
 
-        /* ================= HEADER ================= */
-
-        header {
-            height: 70px;
-            background: white;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            padding: 0 40px;
-
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2563eb;
-        }
-
-        nav {
-            display: flex;
-            gap: 25px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #374151;
-            font-weight: 500;
+        button {
             cursor: pointer;
         }
-
-        nav a:hover {
-            color: #2563eb;
-        }
-
-        /* ================= HERO ================= */
-
-        .hero {
-
-            min-height: 400px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            text-align: center;
-
-            background:
-                linear-gradient(
-                    rgba(37, 99, 235, 0.85),
-                    rgba(59, 130, 246, 0.75)
-                );
-
-            color: white;
-
-            padding: 50px;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 19px;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            background: white;
-            color: #2563eb;
-
-            padding: 12px 25px;
-
-            border: none;
-            border-radius: 8px;
-
-            cursor: pointer;
-
-            font-weight: bold;
-        }
-
-        .btn:hover {
-            background: #f3f4f6;
-        }
-
-        /* ================= SECTIONS ================= */
-
-        .section {
-
-            padding: 50px;
-
-            max-width: 1200px;
-
-            margin: auto;
-        }
-
-        .section h2 {
-            text-align: center;
-
-            margin-bottom: 30px;
-
-            color: #1e3a8a;
-        }
-
-        /* ================= CARDS ================= */
-
-        .cards {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit, minmax(220px, 1fr));
-
-            gap: 25px;
-        }
-
-        .card {
-
-            background: white;
-
-            padding: 25px;
-
-            border-radius: 12px;
-
-            box-shadow:
-                0 5px 20px rgba(0,0,0,0.08);
-
-            text-align: center;
-        }
-
-        .card .icon {
-
-            font-size: 40px;
-
-            margin-bottom: 15px;
-        }
-
-        .card h3 {
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            color: #6b7280;
-
-            margin-bottom: 20px;
-        }
-
-        /* ================= FORMS ================= */
-
-        .form-box {
-
-            background: white;
-
-            padding: 25px;
-
-            border-radius: 12px;
-
-            box-shadow:
-                0 5px 20px rgba(0,0,0,0.08);
-
-            margin-bottom: 30px;
-        }
-
-        .form-box input,
-        .form-box select {
-
-            width: 100%;
-
-            padding: 12px;
-
-            margin: 8px 0;
-
-            border: 1px solid #d1d5db;
-
-            border-radius: 6px;
-        }
-
-        .form-box button {
-
-            margin-top: 10px;
-
-            padding: 11px 20px;
-
-            background: #2563eb;
-
-            color: white;
-
-            border: none;
-
-            border-radius: 6px;
-
-            cursor: pointer;
-        }
-
-        .form-box button:hover {
-            background: #1d4ed8;
-        }
-
-        /* ================= TABLE ================= */
-
-        .table-box {
-
-            background: white;
-
-            padding: 20px;
-
-            border-radius: 12px;
-
-            overflow-x: auto;
-            overflow-y: visible;
-
-            box-shadow:
-                0 5px 20px rgba(0,0,0,0.08);
-        }
-
-        table {
-
-            width: 100%;
-
-            border-collapse: collapse;
-        }
-
-        th,
-        td {
-
-            padding: 12px;
-
-            border-bottom: 1px solid #e5e7eb;
-
-            text-align: left;
-        }
-
-        th {
-
-            background: #eff6ff;
-
-            color: #1e3a8a;
-        }
-
-        /* ================= ACTION BUTTONS ================= */
-
-        .delete-btn {
-
-            background: #dc2626;
-
-            color: white;
-
-            border: none;
-
-            padding: 7px 12px;
-
-            border-radius: 5px;
-
-            cursor: pointer;
-
-            position: relative;
-        }
-
-        .delete-btn[title] {
-            text-decoration: none;
-        }
-
-        .delete-btn::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            left: 50%;
-            bottom: calc(100% + 8px);
-            transform: translateX(-50%) translateY(4px);
-            background: #111827;
-            color: white;
-            padding: 6px 9px;
-            border-radius: 5px;
-            font-size: 12px;
-            font-weight: 500;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity .2s ease, transform .2s ease;
-            z-index: 10;
-        }
-
-        .delete-btn:hover::after,
-        .delete-btn:focus-visible::after {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .delete-btn:hover {
-            background: #b91c1c;
-        }
-
-        .edit-btn {
-
-            background: #16a34a;
-
-            color: white;
-
-            border: none;
-
-            padding: 7px 12px;
-
-            border-radius: 5px;
-
-            cursor: pointer;
-
-            margin-right: 5px;
-        }
-
-        /* ================= FOOTER ================= */
-
-        footer {
-
-            background: #111827;
-
-            color: white;
-
-            text-align: center;
-
-            padding: 25px;
-
-            margin-top: 40px;
-        }
-
-        /* ================= HIDE SECTIONS ================= */
 
         .page {
             display: none;
@@ -364,243 +43,679 @@
             display: block;
         }
 
-        /* Refined workspace styling */
-        body {
-            background: #f4f7f1;
-            color: #16221c;
-            font-family: Manrope, "Segoe UI", sans-serif;
+        .top {
+            height: 68px;
+            background: #fff;
+            border-bottom: 1px solid #e5e3dc;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            gap: 28px;
+            position: sticky;
+            top: 0;
+            z-index: 20;
         }
 
-        header {
-            height: 76px;
-            padding: 0 clamp(20px, 5vw, 64px);
-            background: #1e4938;
-            box-shadow: 0 8px 24px rgba(25, 55, 39, .14);
+        .brand {
+            font-family: Georgia, serif;
+            font-size: 24px;
+            color: #234d39;
+            font-weight: bold;
+            white-space: nowrap;
         }
 
-        .logo { color: #b7d97b; letter-spacing: -.04em; }
-        nav { gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
-        nav a { color: #d8e7d8; padding: 9px 12px; border-radius: 8px; transition: background .2s, color .2s; }
-        nav a:hover { color: #16221c; background: #b7d97b; }
+        .nav {
+            display: flex;
+            gap: 4px;
+            flex: 1;
+            overflow-x: auto;
+        }
+
+        .nav button {
+            border: 0;
+            background: transparent;
+            color: #59645e;
+            padding: 9px 12px;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        .nav button:hover,
+        .nav button.active {
+            background: #edf3ee;
+            color: #234d39;
+        }
+
+        .admin {
+            border: 1px solid #d9ddd8;
+            background: #fff;
+            color: #234d39;
+            padding: 8px 13px;
+            border-radius: 6px;
+        }
 
         .hero {
-            min-height: 430px;
-            justify-content: flex-start;
-            text-align: left;
-            padding: clamp(50px, 8vw, 100px) clamp(24px, 10vw, 150px);
-            background: linear-gradient(120deg, #1e4938 0%, #397052 56%, #b7d97b 160%);
+            background: #fff;
+            padding: 65px 5% 48px;
+            border-bottom: 1px solid #e6e4dd;
         }
 
-        .hero h1 { max-width: 650px; font-size: clamp(40px, 6vw, 72px); letter-spacing: -.07em; line-height: .98; }
-        .hero p { max-width: 560px; color: #e4f1df; line-height: 1.6; }
-        .btn { color: #1e4938; border-radius: 9px; padding: 12px 18px; }
-        .section { max-width: 1280px; padding: clamp(32px, 5vw, 64px) 24px; }
-        .section h2 { color: #1e4938; letter-spacing: -.05em; font-size: clamp(24px, 4vw, 34px); }
-        .cards { gap: 16px; }
-        .card { border: 1px solid #dce5df; border-radius: 14px; padding: 22px; text-align: left; transition: transform .2s, box-shadow .2s; }
-        .card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(25, 55, 39, .12); }
-        .card .icon { font-size: 32px; }
-        .form-box, .table-box { border: 1px solid #dce5df; border-radius: 14px; box-shadow: 0 12px 30px rgba(25, 55, 39, .07); }
-        .form-box { padding: 24px; }
-        .form-box h3, .table-box h3 { color: #1e4938; margin-bottom: 12px; }
-        .form-box input, .form-box select { width: calc(50% - 8px); margin: 6px 4px; padding: 12px; border-color: #dce5df; }
-        .form-box button { background: #1e4938; border-radius: 8px; }
-        .form-box button:hover { background: #397052; }
-        th { background: #edf5e0; color: #1e4938; }
-        td { padding: 14px 12px; }
-        footer { background: #16221c; }
+        .hero-in {
+            max-width: 1050px;
+            margin: auto;
+        }
 
-        @media (max-width: 700px) {
-            header { height: auto; min-height: 76px; padding: 16px 20px; align-items: flex-start; gap: 12px; flex-direction: column; }
-            nav { justify-content: flex-start; }
-            .form-box input, .form-box select { width: 100%; margin: 6px 0; }
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: .16em;
+            font-size: 11px;
+            font-weight: bold;
+            color: #aa8038;
+        }
+
+        .hero h1 {
+            font: 500 clamp(40px, 6vw, 68px) Georgia, serif;
+            color: #234d39;
+            max-width: 720px;
+            margin: 10px 0 15px;
+            line-height: 1.02;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #69736d;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .search {
+            display: flex;
+            max-width: 780px;
+            border: 1px solid #d7dbd5;
+            background: white;
+            border-radius: 7px;
+            padding: 5px;
+            box-shadow: 0 5px 18px #20352a12;
+        }
+
+        .search input {
+            flex: 1;
+            border: 0;
+            outline: 0;
+            padding: 13px;
+        }
+
+        .search button,
+        .primary {
+            background: #234d39;
+            color: #fff;
+            border: 0;
+            border-radius: 6px;
+            padding: 11px 18px;
+        }
+
+        .catalog,
+        .section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 38px 5% 65px;
+        }
+
+        .bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .bar h2,
+        .section h2 {
+            font: 500 31px Georgia, serif;
+            color: #234d39;
+        }
+
+        .bar select {
+            border: 1px solid #d8ddd8;
+            background: white;
+            border-radius: 6px;
+            padding: 9px;
+        }
+
+        .cats {
+            display: flex;
+            gap: 8px;
+            overflow: auto;
+            margin-bottom: 25px;
+        }
+
+        .cats button {
+            white-space: nowrap;
+            border: 1px solid #d8ddd8;
+            background: #fff;
+            color: #59645e;
+            border-radius: 18px;
+            padding: 8px 14px;
+        }
+
+        .cats button.active,
+        .cats button:hover {
+            background: #234d39;
+            color: #fff;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+            gap: 23px;
+        }
+
+        .book {
+            background: #fff;
+            border: 1px solid #e3e4de;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: .2s;
+        }
+
+        .book:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px #20352a16;
+        }
+
+        .cover {
+            height: 245px;
+            padding: 18px;
+            display: flex;
+            align-items: end;
+            color: #fff;
+            background: linear-gradient(145deg, #234d39, #78927d);
+        }
+
+        .cover:nth-child(2n) {
+            background: linear-gradient(145deg, #68512f, #c0a66c);
+        }
+
+        .cover-title {
+            font: 20px Georgia, serif;
+            line-height: 1.1;
+        }
+
+        .info {
+            padding: 14px;
+        }
+
+        .info h3 {
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .author {
+            font-size: 13px;
+            color: #717a74;
+            margin-bottom: 10px;
+        }
+
+        .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .status {
+            font-size: 11px;
+            font-weight: bold;
+            padding: 5px 8px;
+            border-radius: 12px;
+            background: #e9f2eb;
+            color: #2d6648;
+        }
+
+        .status.bad {
+            background: #f7e6e6;
+            color: #963b3b;
+        }
+
+        .view {
+            border: 1px solid #ccd4ce;
+            background: #fff;
+            color: #234d39;
+            border-radius: 5px;
+            padding: 6px 9px;
+        }
+
+        .empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: #777;
+            padding: 50px;
+        }
+
+        .form {
+            background: #fff;
+            border: 1px solid #e2e4df;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 22px 0;
+        }
+
+        .form h3,
+        .table h3 {
+            font: 500 20px Georgia, serif;
+            color: #234d39;
+            margin-bottom: 14px;
+        }
+
+        .fields {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 9px;
+        }
+
+        .fields .full {
+            grid-column: 1 / -1;
+        }
+
+        .fields input,
+        .fields textarea {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #d8ddd8;
+            border-radius: 6px;
+        }
+
+        .fields textarea {
+            min-height: 80px;
+        }
+
+        .table {
+            background: #fff;
+            border: 1px solid #e2e4df;
+            border-radius: 8px;
+            overflow: auto;
+        }
+
+        .table h3 {
+            padding: 17px 20px;
+            border-bottom: 1px solid #e7e8e4;
+            margin: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 12px 14px;
+            border-bottom: 1px solid #edf0eb;
+            font-size: 13px;
+        }
+
+        th {
+            background: #f6f7f4;
+            color: #56625b;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        .delete-btn {
+            background: #fff;
+            color: #a33d3d;
+            border: 1px solid #e3bcbc;
+            padding: 6px 10px;
+            border-radius: 5px;
+        }
+
+        .delete-btn:hover {
+            background: #f9eaea;
+        }
+
+        .edit-btn {
+            background: #edf5ee;
+            color: #286241;
+            border: 1px solid #c8dfce;
+            padding: 6px 10px;
+            border-radius: 5px;
+            margin-right: 4px;
+        }
+
+        .dash {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 13px;
+            margin: 25px 0;
+        }
+
+        .metric {
+            background: #fff;
+            border: 1px solid #e2e4df;
+            border-radius: 8px;
+            padding: 18px;
+        }
+
+        .metric small {
+            color: #707a74;
+        }
+
+        .metric strong {
+            display: block;
+            color: #234d39;
+            font: 500 34px Georgia, serif;
+            margin-top: 5px;
+        }
+
+        .two {
+            display: grid;
+            grid-template-columns: 1.3fr .7fr;
+            gap: 16px;
+        }
+
+        .panel {
+            background: #fff;
+            border: 1px solid #e2e4df;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .panel h3 {
+            font: 500 20px Georgia, serif;
+            color: #234d39;
+        }
+
+        .panel p {
+            font-size: 13px;
+            color: #737c76;
+            margin-top: 5px;
+        }
+
+        .quick {
+            display: grid;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .quick button {
+            border: 1px solid #dfe3de;
+            background: #fafbf9;
+            text-align: left;
+            padding: 11px;
+            border-radius: 6px;
+            color: #234d39;
+        }
+
+        .request-row {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #edf0eb;
+            padding: 11px 0;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .request-row small {
+            display: block;
+            color: #777;
+            margin-top: 4px;
+        }
+
+        .badge {
+            background: #f0eadc;
+            color: #80632b;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+        }
+
+        .dashboard-empty {
+            color: #777;
+            padding: 20px 0;
+            font-size: 13px;
+        }
+
+        footer {
+            background: #20372b;
+            color: #dce6df;
+            text-align: center;
+            padding: 24px;
+            font-size: 13px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: #17251dcc;
+            z-index: 50;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-card {
+            background: #fff;
+            width: min(560px, 100%);
+            border-radius: 9px;
+            padding: 24px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            right: 14px;
+            top: 8px;
+            border: 0;
+            background: none;
+            font-size: 25px;
+        }
+
+        .detail {
+            padding: 10px 0;
+            border-bottom: 1px solid #e7e8e4;
+            font-size: 14px;
+        }
+
+        .detail b {
+            display: inline-block;
+            width: 125px;
+            color: #69736d;
+        }
+
+        @media(max-width:850px) {
+
+            .top {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 14px 5%;
+            }
+
+            .nav {
+                order: 3;
+                flex-basis: 100%;
+            }
+
+            .dash {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .two {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width:600px) {
+
+            .bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .fields {
+                grid-template-columns: 1fr;
+            }
+
+            .fields .full {
+                grid-column: auto;
+            }
+
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .cover {
+                height: 205px;
+            }
+
+            .dash {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
     </style>
 
 </head>
 
-
 <body>
 
+<header class="top">
 
-<!-- ================================================= -->
-<!-- HEADER -->
-<!-- ================================================= -->
+    <div class="brand">📚 E-Library</div>
 
-<header>
+    <nav class="nav">
 
-    <div class="logo">
-        📚 E-Library
-    </div>
+        <button class="active"
+                onclick="showPage('home',this)">
+            Library
+        </button>
 
-    <nav>
+        <button onclick="showPage('dashboard',this)">
+            Dashboard
+        </button>
 
-        <a onclick="showPage('home')">
-            Home
-        </a>
-
-        <a onclick="showPage('users')">
+        <button onclick="showPage('users',this)">
             Users
-        </a>
+        </button>
 
-        <a onclick="showPage('books')">
+        <button onclick="showPage('books',this)">
             Books
-        </a>
+        </button>
 
-        <a onclick="showPage('categories')">
+        <button onclick="showPage('categories',this)">
             Categories
-        </a>
+        </button>
 
-        <a onclick="showPage('licenses')">
+        <button onclick="showPage('licenses',this)">
             Licenses
-        </a>
+        </button>
+
+        <button onclick="showPage('requests',this)">
+            Requests
+        </button>
 
     </nav>
+
+    <button class="admin"
+            onclick="showPage('dashboard',this)">
+        Admin
+    </button>
 
 </header>
 
 
-<!-- ================================================= -->
-<!-- HOME -->
-<!-- ================================================= -->
+<!-- ================= LIBRARY ================= -->
 
 <div id="home" class="page active">
 
     <section class="hero">
 
-        <div>
+        <div class="hero-in">
+
+            <div class="eyebrow">
+                Public Digital Library
+            </div>
 
             <h1>
-                Welcome to E-Library
+                Discover books. Build your digital library.
             </h1>
 
             <p>
-                Public Electronic Library and
-                E-Book Licensing Management System
+                Search the collection, browse categories
+                and manage e-book access from one simple
+                library catalog.
             </p>
 
-            <button
-                class="btn"
-                onclick="showPage('books')">
+            <div class="search">
 
-                Explore Books
+                <input
+                    id="catalogSearch"
+                    placeholder="Search title, author, ISBN or language..."
+                    oninput="filterBooks()">
 
-            </button>
+                <button onclick="filterBooks()">
+                    Search
+                </button>
+
+            </div>
 
         </div>
 
     </section>
 
 
-    <section class="section">
+    <section class="catalog">
 
-        <h2>
-            Library Management
-        </h2>
+        <div class="bar">
 
-        <div class="cards">
+            <h2>
+                Library collection
+            </h2>
+
+            <select id="bookSort"
+                    onchange="filterBooks()">
+
+                <option value="title">
+                    Sort by title
+                </option>
+
+                <option value="author">
+                    Sort by author
+                </option>
+
+                <option value="status">
+                    Sort by status
+                </option>
+
+            </select>
+
+        </div>
 
 
-            <div class="card">
+        <div class="cats"
+             id="categoryStrip">
 
-                <div class="icon">
-                    👤
-                </div>
+            <button
+                class="active"
+                onclick="selectCategory('ALL',this)">
+                All books
+            </button>
 
-                <h3>
-                    Users
-                </h3>
+        </div>
 
-                <p>
-                    Manage library users
-                </p>
 
-                <button
-                    class="btn"
-                    onclick="showPage('users')">
+        <div class="grid"
+             id="catalogGrid">
 
-                    Manage Users
-
-                </button>
-
+            <div class="empty">
+                Loading books...
             </div>
-
-
-            <div class="card">
-
-                <div class="icon">
-                    📖
-                </div>
-
-                <h3>
-                    Books
-                </h3>
-
-                <p>
-                    Manage electronic books
-                </p>
-
-                <button
-                    class="btn"
-                    onclick="showPage('books')">
-
-                    Manage Books
-
-                </button>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="icon">
-                    🗂️
-                </div>
-
-                <h3>
-                    Categories
-                </h3>
-
-                <p>
-                    Organize books
-                </p>
-
-                <button
-                    class="btn"
-                    onclick="showPage('categories')">
-
-                    Categories
-
-                </button>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="icon">
-                    🔐
-                </div>
-
-                <h3>
-                    Licenses
-                </h3>
-
-                <p>
-                    Manage e-book licenses
-                </p>
-
-                <button
-                    class="btn"
-                    onclick="showPage('licenses')">
-
-                    Licenses
-
-                </button>
-
-            </div>
-
 
         </div>
 
@@ -609,68 +724,191 @@
 </div>
 
 
-<!-- ================================================= -->
-<!-- USERS -->
-<!-- ================================================= -->
+<!-- ================= DASHBOARD ================= -->
+
+<div id="dashboard" class="page">
+
+    <section class="section">
+
+        <div class="eyebrow">
+            Control Center
+        </div>
+
+        <h2>
+            Library overview
+        </h2>
+
+
+        <div class="dash">
+
+            <div class="metric">
+
+                <small>
+                    Total members
+                </small>
+
+                <strong id="metric-users">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="metric">
+
+                <small>
+                    Books
+                </small>
+
+                <strong id="metric-books">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="metric">
+
+                <small>
+                    Active licenses
+                </small>
+
+                <strong id="metric-licenses">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="metric">
+
+                <small>
+                    Pending requests
+                </small>
+
+                <strong id="metric-requests">
+                    —
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="two">
+
+            <div class="panel">
+
+                <h3>
+                    Recent requests
+                </h3>
+
+                <p>
+                    Latest access requests.
+                </p>
+
+                <div id="recent-requests"></div>
+
+            </div>
+
+
+            <div class="panel">
+
+                <h3>
+                    Quick actions
+                </h3>
+
+                <div class="quick">
+
+                    <button onclick="showPage('users')">
+                        Manage users →
+                    </button>
+
+                    <button onclick="showPage('books')">
+                        Manage books →
+                    </button>
+
+                    <button onclick="showPage('licenses')">
+                        Manage licenses →
+                    </button>
+
+                    <button onclick="showPage('requests')">
+                        Review requests →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ================= USERS ================= -->
 
 <div id="users" class="page">
 
     <section class="section">
 
+        <div class="eyebrow">
+            Members
+        </div>
+
         <h2>
-            👤 User Management
+            User management
         </h2>
 
 
-        <!-- ADD USER -->
-
-        <div class="form-box">
+        <div class="form">
 
             <h3>
-                Add User
+                Add user
             </h3>
 
-            <input
-                type="text"
-                id="userName"
-                placeholder="Name">
+            <div class="fields">
 
-            <input
-                type="email"
-                id="userEmail"
-                placeholder="Email">
+                <input
+                    id="userName"
+                    placeholder="Name">
 
-            <input
-                type="password"
-                id="userPassword"
-                placeholder="Password">
+                <input
+                    id="userEmail"
+                    placeholder="Email">
 
-            <input
-                type="text"
-                id="userRole"
-                placeholder="Role">
+                <input
+                    id="userPassword"
+                    type="password"
+                    placeholder="Password">
 
-            <input
-                type="text"
-                id="userStatus"
-                placeholder="Status">
+                <input
+                    id="userRole"
+                    placeholder="Role">
 
-            <button onclick="addUser()">
-                Add User
+                <input
+                    id="userStatus"
+                    placeholder="Status">
+
+            </div>
+
+            <button
+                class="primary"
+                onclick="addUser()">
+
+                Add user
+
             </button>
 
         </div>
 
 
-        <!-- USERS TABLE -->
-
-        <div class="table-box">
+        <div class="table">
 
             <h3>
-                Users List
+                Users list
             </h3>
-
-            <br>
 
             <table>
 
@@ -679,24 +917,17 @@
                     <tr>
 
                         <th>ID</th>
-
                         <th>Name</th>
-
                         <th>Email</th>
-
                         <th>Role</th>
-
                         <th>Status</th>
-
                         <th>Action</th>
 
                     </tr>
 
                 </thead>
 
-                <tbody id="userTable">
-
-                </tbody>
+                <tbody id="userTable"></tbody>
 
             </table>
 
@@ -707,83 +938,82 @@
 </div>
 
 
-<!-- ================================================= -->
-<!-- BOOKS -->
-<!-- ================================================= -->
+<!-- ================= BOOKS ================= -->
 
 <div id="books" class="page">
 
     <section class="section">
 
+        <div class="eyebrow">
+            Collection
+        </div>
+
         <h2>
-            📖 Book Management
+            Book management
         </h2>
 
 
-        <!-- ADD BOOK -->
-
-        <div class="form-box">
+        <div class="form">
 
             <h3>
-                Add Book
+                Add book
             </h3>
 
-            <input
-                type="text"
-                id="bookTitle"
-                placeholder="Book Title">
+            <div class="fields">
 
-            <input
-                type="text"
-                id="bookAuthor"
-                placeholder="Author">
+                <input
+                    id="bookTitle"
+                    placeholder="Book title">
 
-            <input
-                type="text"
-                id="bookIsbn"
-                placeholder="ISBN">
+                <input
+                    id="bookAuthor"
+                    placeholder="Author">
 
-            <input
-                type="text"
-                id="bookLanguage"
-                placeholder="Language">
+                <input
+                    id="bookIsbn"
+                    placeholder="ISBN">
 
-            <input
-                type="text"
-                id="bookDescription"
-                placeholder="Description">
+                <input
+                    id="bookLanguage"
+                    placeholder="Language">
 
-            <input
-                type="text"
-                id="bookFileUrl"
-                placeholder="File URL">
+                <input
+                    id="bookFileUrl"
+                    placeholder="File URL">
 
-            <input
-                type="text"
-                id="bookStatus"
-                placeholder="Status">
+                <input
+                    id="bookStatus"
+                    placeholder="Status">
 
-            <input
-                type="number"
-                id="bookCategoryId"
-                placeholder="Category ID">
+                <input
+                    id="bookCategoryId"
+                    type="number"
+                    placeholder="Category ID">
 
-            <button onclick="addBook()">
-                Add Book
+                <textarea
+                    id="bookDescription"
+                    class="full"
+                    placeholder="Description">
+                </textarea>
+
+            </div>
+
+            <button
+                class="primary"
+                onclick="addBook()">
+
+                Add book
+
             </button>
 
         </div>
 
 
-        <!-- BOOK TABLE -->
-
-        <div class="table-box">
+        <div class="table">
 
             <h3>
-                Books List
+                Books list
             </h3>
-
-            <br>
 
             <table>
 
@@ -792,26 +1022,18 @@
                     <tr>
 
                         <th>ID</th>
-
                         <th>Title</th>
-
                         <th>Author</th>
-
                         <th>ISBN</th>
-
                         <th>Language</th>
-
                         <th>Status</th>
-
                         <th>Action</th>
 
                     </tr>
 
                 </thead>
 
-                <tbody id="bookTable">
-
-                </tbody>
+                <tbody id="bookTable"></tbody>
 
             </table>
 
@@ -822,53 +1044,55 @@
 </div>
 
 
-<!-- ================================================= -->
-<!-- CATEGORIES -->
-<!-- ================================================= -->
+<!-- ================= CATEGORIES ================= -->
 
 <div id="categories" class="page">
 
     <section class="section">
 
+        <div class="eyebrow">
+            Collections
+        </div>
+
         <h2>
-            🗂️ Category Management
+            Categories
         </h2>
 
 
-        <!-- ADD CATEGORY -->
-
-        <div class="form-box">
+        <div class="form">
 
             <h3>
-                Add Category
+                Add category
             </h3>
 
-            <input
-                type="text"
-                id="categoryName"
-                placeholder="Category Name">
+            <div class="fields">
 
-            <input
-                type="text"
-                id="categoryDescription"
-                placeholder="Description">
+                <input
+                    id="categoryName"
+                    placeholder="Category name">
 
-            <button onclick="addCategory()">
-                Add Category
+                <input
+                    id="categoryDescription"
+                    placeholder="Description">
+
+            </div>
+
+            <button
+                class="primary"
+                onclick="addCategory()">
+
+                Add category
+
             </button>
 
         </div>
 
 
-        <!-- CATEGORY TABLE -->
-
-        <div class="table-box">
+        <div class="table">
 
             <h3>
-                Categories List
+                Categories list
             </h3>
-
-            <br>
 
             <table>
 
@@ -877,20 +1101,15 @@
                     <tr>
 
                         <th>ID</th>
-
                         <th>Name</th>
-
                         <th>Description</th>
-
                         <th>Action</th>
 
                     </tr>
 
                 </thead>
 
-                <tbody id="categoryTable">
-
-                </tbody>
+                <tbody id="categoryTable"></tbody>
 
             </table>
 
@@ -901,53 +1120,57 @@
 </div>
 
 
-<!-- ================================================= -->
-<!-- LICENSES -->
-<!-- ================================================= -->
+<!-- ================= LICENSES ================= -->
 
 <div id="licenses" class="page">
 
     <section class="section">
 
+        <div class="eyebrow">
+            Access
+        </div>
+
         <h2>
-            🔐 License Management
+            E-book licenses
         </h2>
 
 
-        <!-- CREATE LICENSE -->
-
-        <div class="form-box">
+        <div class="form">
 
             <h3>
-                Create E-Book License
+                Create license
             </h3>
 
-            <input
-                type="number"
-                id="licenseUserId"
-                placeholder="User ID">
+            <div class="fields">
 
-            <input
-                type="number"
-                id="licenseBookId"
-                placeholder="Book ID">
+                <input
+                    id="licenseUserId"
+                    type="number"
+                    placeholder="User ID">
 
-            <button onclick="createLicense()">
-                Create License
+                <input
+                    id="licenseBookId"
+                    type="number"
+                    placeholder="Book ID">
+
+            </div>
+
+            <button
+                class="primary"
+                onclick="createLicense()">
+
+                Create license
+
             </button>
 
         </div>
 
 
-        <!-- LICENSE TABLE -->
-
-        <div class="table-box">
+        <div class="table">
 
             <h3>
-                License List
+                License list
             </h3>
-
-            <br>
 
             <table>
 
@@ -956,24 +1179,18 @@
                     <tr>
 
                         <th>License ID</th>
-
                         <th>User ID</th>
-
                         <th>Book ID</th>
-
-                        <th>Start Date</th>
-
-                        <th>Expiry Date</th>
-
+                        <th>Start</th>
+                        <th>Expiry</th>
                         <th>Status</th>
+                        <th>Action</th>
 
                     </tr>
 
                 </thead>
 
-                <tbody id="licenseTable">
-
-                </tbody>
+                <tbody id="licenseTable"></tbody>
 
             </table>
 
@@ -984,69 +1201,395 @@
 </div>
 
 
-<!-- ================================================= -->
-<!-- FOOTER -->
-<!-- ================================================= -->
+<!-- ================= REQUESTS ================= -->
+
+<div id="requests" class="page">
+
+    <section class="section">
+
+        <div class="eyebrow">
+            Access Requests
+        </div>
+
+        <h2>
+            License requests
+        </h2>
+
+
+        <div class="table">
+
+            <h3>
+                Incoming requests
+            </h3>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Request ID</th>
+                        <th>User ID</th>
+                        <th>Book ID</th>
+                        <th>Requested</th>
+                        <th>Status</th>
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="requestTable"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ================= BOOK MODAL ================= -->
+
+<div id="bookModal"
+     class="modal"
+     onclick="if(event.target===this)closeBookModal()">
+
+    <div class="modal-card">
+
+        <button
+            class="close"
+            onclick="closeBookModal()">
+            ×
+        </button>
+
+        <div id="bookModalContent"></div>
+
+    </div>
+
+</div>
+
 
 <footer>
 
-    <p>
-        © 2026 E-Library Management System
-    </p>
+    © 2026 Automated Public E-Library and
+    E-Book Licensing Network
 
 </footer>
 
 
-<!-- ================================================= -->
-<!-- JAVASCRIPT -->
-<!-- ================================================= -->
-
 <script>
 
-const API = "http://localhost:8080";
+const API = "";
 
 
 /* ==========================================
    PAGE NAVIGATION
 ========================================== */
 
-function showPage(pageId) {
+function showPage(pageId, button) {
 
     document
         .querySelectorAll(".page")
         .forEach(page => {
-
             page.classList.remove("active");
-
         });
 
 
+    const page = document.getElementById(pageId);
+
+    if (page) {
+        page.classList.add("active");
+    }
+
+
     document
-        .getElementById(pageId)
-        .classList.add("active");
+        .querySelectorAll(".nav button")
+        .forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+
+    if (button) {
+        button.classList.add("active");
+    }
 
 
     if (pageId === "users") {
-
         getUsers();
-
     }
 
     if (pageId === "books") {
-
         getBooks();
-
     }
 
     if (pageId === "categories") {
-
         getCategories();
-
     }
 
     if (pageId === "licenses") {
-
         getLicenses();
+    }
+
+    if (pageId === "requests") {
+        getRequests();
+    }
+
+    if (pageId === "home") {
+        loadLibrary();
+    }
+
+}
+
+
+/* ==========================================
+   DASHBOARD
+========================================== */
+
+async function getDashboard() {
+
+    try {
+
+        const results = await Promise.all([
+
+            fetch(API + "/users")
+                .then(response => response.json()),
+
+            fetch(API + "/books")
+                .then(response => response.json()),
+
+            fetch(API + "/licenses")
+                .then(response => response.json()),
+
+            fetch(API + "/license-requests")
+                .then(response => response.json())
+
+        ]);
+
+
+        const [
+            users,
+            books,
+            licenses,
+            requests
+        ] = results;
+
+
+        document.getElementById(
+            "metric-users"
+        ).textContent = users.length;
+
+
+        document.getElementById(
+            "metric-books"
+        ).textContent = books.length;
+
+
+        document.getElementById(
+            "metric-licenses"
+        ).textContent =
+            licenses.filter(
+                license => license.status === "ACTIVE"
+            ).length;
+
+
+        document.getElementById(
+            "metric-requests"
+        ).textContent =
+            requests.filter(
+                request => request.status === "PENDING"
+            ).length;
+
+
+        const list =
+            document.getElementById(
+                "recent-requests"
+            );
+
+
+        const recent =
+            requests.slice(-5).reverse();
+
+
+        list.innerHTML = recent.length
+
+            ? recent.map(request => `
+
+                <div class="request-row">
+
+                    <div>
+
+                        Request #${request.requestId}
+
+                        <small>
+                            User ${request.userId}
+                            ·
+                            Book ${request.bookId}
+                        </small>
+
+                    </div>
+
+                    <span class="badge">
+                        ${request.status}
+                    </span>
+
+                </div>
+
+            `).join("")
+
+            : `
+                <div class="dashboard-empty">
+                    No access requests yet.
+                </div>
+            `;
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
+
+}
+
+
+/* ==========================================
+   REQUESTS
+========================================== */
+
+async function getRequests() {
+
+    try {
+
+        const response =
+            await fetch(API + "/license-requests");
+
+
+        if (!response.ok) {
+            throw new Error("Failed to load requests");
+        }
+
+
+        const requests =
+            await response.json();
+
+
+        const table =
+            document.getElementById(
+                "requestTable"
+            );
+
+
+        table.innerHTML = "";
+
+
+        requests.forEach(request => {
+
+            table.innerHTML += `
+
+                <tr>
+
+                    <td>
+                        ${request.requestId}
+                    </td>
+
+                    <td>
+                        ${request.userId}
+                    </td>
+
+                    <td>
+                        ${request.bookId}
+                    </td>
+
+                    <td>
+                        ${request.requestDate}
+                    </td>
+
+                    <td>
+                        ${request.status}
+                    </td>
+
+                    <td>
+
+                        ${
+                            request.status === "PENDING"
+
+                            ?
+
+                            `
+                            <button
+                                class="edit-btn"
+                                onclick="
+                                reviewRequest(
+                                    ${request.requestId},
+                                    'approve'
+                                )">
+                                Approve
+                            </button>
+
+                            <button
+                                class="delete-btn"
+                                onclick="
+                                reviewRequest(
+                                    ${request.requestId},
+                                    'reject'
+                                )">
+                                Reject
+                            </button>
+                            `
+
+                            :
+
+                            "—"
+                        }
+
+                    </td>
+
+                </tr>
+
+            `;
+
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
+
+}
+
+
+async function reviewRequest(id, decision) {
+
+    const response =
+        await fetch(
+            API +
+            "/license-requests/" +
+            id +
+            "/" +
+            decision,
+            {
+                method: "PUT"
+            }
+        );
+
+
+    if (response.ok) {
+
+        alert(
+            "Request updated successfully"
+        );
+
+        getRequests();
+
+        getDashboard();
+
+    } else {
+
+        alert(
+            "Unable to update request"
+        );
 
     }
 
@@ -1064,12 +1607,20 @@ async function getUsers() {
         const response =
             await fetch(API + "/users");
 
+
+        if (!response.ok) {
+            throw new Error("Failed to load users");
+        }
+
+
         const users =
             await response.json();
 
 
         const table =
-            document.getElementById("userTable");
+            document.getElementById(
+                "userTable"
+            );
 
 
         table.innerHTML = "";
@@ -1081,24 +1632,35 @@ async function getUsers() {
 
                 <tr>
 
-                    <td>${user.userId}</td>
+                    <td>
+                        ${user.userId}
+                    </td>
 
-                    <td>${user.name}</td>
+                    <td>
+                        ${user.name}
+                    </td>
 
-                    <td>${user.email}</td>
+                    <td>
+                        ${user.email}
+                    </td>
 
-                    <td>${user.role}</td>
+                    <td>
+                        ${user.role}
+                    </td>
 
-                    <td>${user.status}</td>
+                    <td>
+                        ${user.status}
+                    </td>
 
                     <td>
 
                         <button
                             class="delete-btn"
                             title="Delete user"
-                            data-tooltip="Delete record"
-                            aria-label="Delete user"
-                            onclick="deleteUser(${user.userId})">
+                            onclick="
+                            deleteUser(
+                                ${user.userId}
+                            )">
 
                             Delete
 
@@ -1112,13 +1674,13 @@ async function getUsers() {
 
         });
 
-    }
-
-    catch(error) {
+    } catch (error) {
 
         console.error(error);
 
-        alert("Cannot connect to Spring Boot");
+        alert(
+            "Cannot connect to Spring Boot"
+        );
 
     }
 
@@ -1130,50 +1692,77 @@ async function addUser() {
     const user = {
 
         name:
-            document.getElementById("userName").value,
+            document.getElementById(
+                "userName"
+            ).value,
 
         email:
-            document.getElementById("userEmail").value,
+            document.getElementById(
+                "userEmail"
+            ).value,
 
         password:
-            document.getElementById("userPassword").value,
+            document.getElementById(
+                "userPassword"
+            ).value,
 
         role:
-            document.getElementById("userRole").value,
+            document.getElementById(
+                "userRole"
+            ).value,
 
         status:
-            document.getElementById("userStatus").value
+            document.getElementById(
+                "userStatus"
+            ).value
 
     };
 
 
-    const response =
-        await fetch(API + "/users", {
+    try {
 
-            method: "POST",
+        const response =
+            await fetch(
+                API + "/users",
+                {
+                    method: "POST",
 
-            headers: {
-                "Content-Type":
-                    "application/json"
-            },
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
 
-            body:
-                JSON.stringify(user)
+                    body:
+                        JSON.stringify(user)
+                }
+            );
 
-        });
 
+        if (response.ok) {
 
-    if (response.ok) {
+            alert(
+                "User added successfully"
+            );
 
-        alert("User added successfully");
+            getUsers();
 
-        getUsers();
+            getDashboard();
 
-    }
+        } else {
 
-    else {
+            alert(
+                "Failed to add user"
+            );
 
-        alert("Failed to add user");
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "Cannot connect to Spring Boot"
+        );
 
     }
 
@@ -1182,25 +1771,55 @@ async function addUser() {
 
 async function deleteUser(id) {
 
-    if (!confirm("Delete this user?")) {
+    if (
+        !confirm(
+            "Are you sure you want to delete this user?"
+        )
+    ) {
         return;
     }
 
 
-    const response =
-        await fetch(
-            API + "/users/" + id,
-            {
-                method: "DELETE"
-            }
+    try {
+
+        const response =
+            await fetch(
+                API + "/users/" + id,
+                {
+                    method: "DELETE"
+                }
+            );
+
+
+        if (response.ok) {
+
+            alert(
+                "User deleted successfully"
+            );
+
+            getUsers();
+
+            getDashboard();
+
+        } else {
+
+            const message =
+                await response.text();
+
+            alert(
+                message ||
+                "Failed to delete user"
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "Cannot connect to Spring Boot"
         );
-
-
-    if (response.ok) {
-
-        alert("User deleted");
-
-        getUsers();
 
     }
 
@@ -1211,6 +1830,10 @@ async function deleteUser(id) {
    BOOKS
 ========================================== */
 
+let allBooks = [];
+let selectedCategory = "ALL";
+
+
 async function getBooks() {
 
     try {
@@ -1218,12 +1841,23 @@ async function getBooks() {
         const response =
             await fetch(API + "/books");
 
+
+        if (!response.ok) {
+            throw new Error("Failed to load books");
+        }
+
+
         const books =
             await response.json();
 
 
+        allBooks = books;
+
+
         const table =
-            document.getElementById("bookTable");
+            document.getElementById(
+                "bookTable"
+            );
 
 
         table.innerHTML = "";
@@ -1235,26 +1869,39 @@ async function getBooks() {
 
                 <tr>
 
-                    <td>${book.bookId}</td>
+                    <td>
+                        ${book.bookId}
+                    </td>
 
-                    <td>${book.title}</td>
+                    <td>
+                        ${book.title}
+                    </td>
 
-                    <td>${book.author}</td>
+                    <td>
+                        ${book.author}
+                    </td>
 
-                    <td>${book.isbn}</td>
+                    <td>
+                        ${book.isbn}
+                    </td>
 
-                    <td>${book.language}</td>
+                    <td>
+                        ${book.language}
+                    </td>
 
-                    <td>${book.status}</td>
+                    <td>
+                        ${book.status}
+                    </td>
 
                     <td>
 
                         <button
                             class="delete-btn"
                             title="Delete book"
-                            data-tooltip="Delete record"
-                            aria-label="Delete book"
-                            onclick="deleteBook(${book.bookId})">
+                            onclick="
+                            deleteBook(
+                                ${book.bookId}
+                            )">
 
                             Delete
 
@@ -1268,11 +1915,18 @@ async function getBooks() {
 
         });
 
-    }
 
-    catch(error) {
+        renderLibrary(allBooks);
+
+        loadCategoriesForLibrary();
+
+    } catch (error) {
 
         console.error(error);
+
+        alert(
+            "Cannot load books"
+        );
 
     }
 
@@ -1284,57 +1938,96 @@ async function addBook() {
     const book = {
 
         title:
-            document.getElementById("bookTitle").value,
+            document.getElementById(
+                "bookTitle"
+            ).value,
 
         author:
-            document.getElementById("bookAuthor").value,
+            document.getElementById(
+                "bookAuthor"
+            ).value,
 
         isbn:
-            document.getElementById("bookIsbn").value,
+            document.getElementById(
+                "bookIsbn"
+            ).value,
 
         language:
-            document.getElementById("bookLanguage").value,
+            document.getElementById(
+                "bookLanguage"
+            ).value,
 
         description:
-            document.getElementById("bookDescription").value,
+            document.getElementById(
+                "bookDescription"
+            ).value,
 
         fileUrl:
-            document.getElementById("bookFileUrl").value,
+            document.getElementById(
+                "bookFileUrl"
+            ).value,
 
         status:
-            document.getElementById("bookStatus").value,
+            document.getElementById(
+                "bookStatus"
+            ).value,
 
         categoryId:
             Number(
-                document.getElementById("bookCategoryId").value
+                document.getElementById(
+                    "bookCategoryId"
+                ).value
             )
 
     };
 
 
-    const response =
-        await fetch(API + "/books", {
+    try {
 
-            method: "POST",
+        const response =
+            await fetch(
+                API + "/books",
+                {
 
-            headers: {
+                    method: "POST",
 
-                "Content-Type":
-                    "application/json"
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
 
-            },
+                    body:
+                        JSON.stringify(book)
 
-            body:
-                JSON.stringify(book)
-
-        });
+                }
+            );
 
 
-    if (response.ok) {
+        if (response.ok) {
 
-        alert("Book added successfully");
+            alert(
+                "Book added successfully"
+            );
 
-        getBooks();
+            getBooks();
+
+            getDashboard();
+
+        } else {
+
+            alert(
+                "Failed to add book"
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "Cannot connect to Spring Boot"
+        );
 
     }
 
@@ -1343,20 +2036,55 @@ async function addBook() {
 
 async function deleteBook(id) {
 
-    const response =
-        await fetch(
-            API + "/books/" + id,
-            {
-                method: "DELETE"
-            }
+    if (
+        !confirm(
+            "Are you sure you want to delete this book?"
+        )
+    ) {
+        return;
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                API + "/books/" + id,
+                {
+                    method: "DELETE"
+                }
+            );
+
+
+        if (response.ok) {
+
+            alert(
+                "Book deleted successfully"
+            );
+
+            getBooks();
+
+            getDashboard();
+
+        } else {
+
+            const message =
+                await response.text();
+
+            alert(
+                message ||
+                "Failed to delete book"
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "Cannot connect to Spring Boot"
         );
-
-
-    if (response.ok) {
-
-        alert("Book deleted");
-
-        getBooks();
 
     }
 
@@ -1369,53 +2097,87 @@ async function deleteBook(id) {
 
 async function getCategories() {
 
-    const response =
-        await fetch(API + "/categories");
+    try {
+
+        const response =
+            await fetch(
+                API + "/categories"
+            );
 
 
-    const categories =
-        await response.json();
+        if (!response.ok) {
+            throw new Error(
+                "Failed to load categories"
+            );
+        }
 
 
-    const table =
-        document.getElementById("categoryTable");
+        const categories =
+            await response.json();
 
 
-    table.innerHTML = "";
+        const table =
+            document.getElementById(
+                "categoryTable"
+            );
 
 
-    categories.forEach(category => {
+        table.innerHTML = "";
 
-        table.innerHTML += `
 
-            <tr>
+        categories.forEach(category => {
 
-                <td>${category.categoryId}</td>
+            table.innerHTML += `
 
-                <td>${category.name}</td>
+                <tr>
 
-                <td>${category.description}</td>
+                    <td>
+                        ${category.categoryId}
+                    </td>
 
-                <td>
+                    <td>
+                        ${category.name}
+                    </td>
 
-                    <button>
-                        class="delete-btn"
-                        title="Delete category"
-                        data-tooltip="Delete record"
-                        aria-label="Delete category"
-                        onclick="deleteCategory(${category.categoryId})">
+                    <td>
+                        ${category.description}
+                    </td>
 
-                        Delete
+                    <td>
 
-                    </button>
+                        <button
+                            class="delete-btn"
+                            title="Delete category"
+                            aria-label="Delete category"
+                            onclick="
+                            deleteCategory(
+                                ${category.categoryId}
+                            )">
 
-                </td>
+                            Delete
 
-            </tr>
+                        </button>
 
-        `;
+                    </td>
 
-    });
+                </tr>
+
+            `;
+
+        });
+
+
+        renderCategoryButtons(categories);
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "Cannot load categories"
+        );
+
+    }
 
 }
 
@@ -1425,37 +2187,64 @@ async function addCategory() {
     const category = {
 
         name:
-            document.getElementById("categoryName").value,
+            document.getElementById(
+                "categoryName"
+            ).value,
 
         description:
-            document.getElementById("categoryDescription").value
+            document.getElementById(
+                "categoryDescription"
+            ).value
 
     };
 
 
-    const response =
-        await fetch(API + "/categories", {
+    try {
 
-            method: "POST",
+        const response =
+            await fetch(
+                API + "/categories",
+                {
 
-            headers: {
+                    method: "POST",
 
-                "Content-Type":
-                    "application/json"
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
 
-            },
+                    body:
+                        JSON.stringify(category)
 
-            body:
-                JSON.stringify(category)
-
-        });
+                }
+            );
 
 
-    if (response.ok) {
+        if (response.ok) {
 
-        alert("Category added successfully");
+            alert(
+                "Category added successfully"
+            );
 
-        getCategories();
+            getCategories();
+
+            getDashboard();
+
+        } else {
+
+            alert(
+                "Failed to add category"
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "Cannot connect to Spring Boot"
+        );
 
     }
 
@@ -1464,20 +2253,55 @@ async function addCategory() {
 
 async function deleteCategory(id) {
 
-    const response =
-        await fetch(
-            API + "/categories/" + id,
-            {
-                method: "DELETE"
-            }
+    if (
+        !confirm(
+            "Are you sure you want to delete this category?"
+        )
+    ) {
+        return;
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                API + "/categories/" + id,
+                {
+                    method: "DELETE"
+                }
+            );
+
+
+        if (response.ok) {
+
+            alert(
+                "Category deleted successfully"
+            );
+
+            getCategories();
+
+            getDashboard();
+
+        } else {
+
+            const message =
+                await response.text();
+
+            alert(
+                message ||
+                "Failed to delete category"
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "Cannot connect to Spring Boot"
         );
-
-
-    if (response.ok) {
-
-        alert("Category deleted");
-
-        getCategories();
 
     }
 
@@ -1490,44 +2314,96 @@ async function deleteCategory(id) {
 
 async function getLicenses() {
 
-    const response =
-        await fetch(API + "/licenses");
+    try {
+
+        const response =
+            await fetch(
+                API + "/licenses"
+            );
 
 
-    const licenses =
-        await response.json();
+        if (!response.ok) {
+            throw new Error(
+                "Failed to load licenses"
+            );
+        }
 
 
-    const table =
-        document.getElementById("licenseTable");
+        const licenses =
+            await response.json();
 
 
-    table.innerHTML = "";
+        const table =
+            document.getElementById(
+                "licenseTable"
+            );
 
 
-    licenses.forEach(license => {
+        table.innerHTML = "";
 
-        table.innerHTML += `
 
-            <tr>
+        licenses.forEach(license => {
 
-                <td>${license.licenseId}</td>
+            table.innerHTML += `
 
-                <td>${license.userId}</td>
+                <tr>
 
-                <td>${license.bookId}</td>
+                    <td>
+                        ${license.licenseId}
+                    </td>
 
-                <td>${license.startDate}</td>
+                    <td>
+                        ${license.userId}
+                    </td>
 
-                <td>${license.expiryDate}</td>
+                    <td>
+                        ${license.bookId}
+                    </td>
 
-                <td>${license.status}</td>
+                    <td>
+                        ${license.startDate}
+                    </td>
 
-            </tr>
+                    <td>
+                        ${license.expiryDate}
+                    </td>
 
-        `;
+                    <td>
+                        ${license.status}
+                    </td>
 
-    });
+                    <td>
+
+                        <button
+                            class="delete-btn"
+                            title="Delete license"
+                            aria-label="Delete license"
+                            onclick="
+                            deleteLicense(
+                                ${license.licenseId}
+                            )">
+
+                            Delete
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            `;
+
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "Cannot load licenses"
+        );
+
+    }
 
 }
 
@@ -1546,42 +2422,577 @@ async function createLicense() {
         ).value;
 
 
-    const response =
-        await fetch(
-            API +
-            "/licenses?userId=" +
-            userId +
-            "&bookId=" +
-            bookId,
-            {
-                method: "POST"
-            }
-        );
-
-
-    if (response.ok) {
+    if (!userId || !bookId) {
 
         alert(
-            "License created successfully"
+            "Please enter User ID and Book ID"
         );
 
-        getLicenses();
+        return;
 
     }
 
-    else {
 
-        const error =
-            await response.text();
+    try {
 
-        alert(error);
+        const response =
+            await fetch(
+
+                API +
+                "/licenses?userId=" +
+                userId +
+                "&bookId=" +
+                bookId,
+
+                {
+                    method: "POST"
+                }
+
+            );
+
+
+        if (response.ok) {
+
+            alert(
+                "License created successfully"
+            );
+
+            getLicenses();
+
+            getDashboard();
+
+        } else {
+
+            const error =
+                await response.text();
+
+            alert(error);
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "Cannot connect to Spring Boot"
+        );
 
     }
 
 }
 
-</script>
 
+async function deleteLicense(id) {
+
+    if (
+        !confirm(
+            "Are you sure you want to delete this license?"
+        )
+    ) {
+        return;
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                API + "/licenses/" + id,
+                {
+                    method: "DELETE"
+                }
+            );
+
+
+        if (response.ok) {
+
+            alert(
+                "License deleted successfully"
+            );
+
+            getLicenses();
+
+            getDashboard();
+
+        } else {
+
+            const message =
+                await response.text();
+
+            alert(
+                message ||
+                "Failed to delete license"
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "Cannot connect to Spring Boot"
+        );
+
+    }
+
+}
+
+
+/* ==========================================
+   LIBRARY CATALOG
+========================================== */
+
+async function loadLibrary() {
+
+    try {
+
+        const response =
+            await fetch(
+                API + "/books"
+            );
+
+
+        if (!response.ok) {
+            throw new Error(
+                "Failed to load library"
+            );
+        }
+
+
+        allBooks =
+            await response.json();
+
+
+        renderLibrary(allBooks);
+
+        loadCategoriesForLibrary();
+
+    } catch (error) {
+
+        console.error(error);
+
+        document.getElementById(
+            "catalogGrid"
+        ).innerHTML = `
+
+            <div class="empty">
+                Unable to load books.
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+function renderLibrary(books) {
+
+    const grid =
+        document.getElementById(
+            "catalogGrid"
+        );
+
+
+    if (!books.length) {
+
+        grid.innerHTML = `
+
+            <div class="empty">
+                No books found.
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    grid.innerHTML = books.map(book => `
+
+        <div class="book">
+
+            <div class="cover">
+
+                <div class="cover-title">
+                    ${book.title || "Untitled"}
+                </div>
+
+            </div>
+
+
+            <div class="info">
+
+                <h3>
+                    ${book.title || "Untitled"}
+                </h3>
+
+                <div class="author">
+                    ${book.author || "Unknown author"}
+                </div>
+
+
+                <div class="meta">
+
+                    <span
+                        class="status
+                        ${
+                            String(book.status)
+                            .toUpperCase() !== "AVAILABLE"
+                            ? "bad"
+                            : ""
+                        }">
+
+                        ${book.status || "UNKNOWN"}
+
+                    </span>
+
+
+                    <button
+                        class="view"
+                        onclick="
+                        viewBook(
+                            ${book.bookId}
+                        )">
+
+                        View
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+function filterBooks() {
+
+    const search =
+        document.getElementById(
+            "catalogSearch"
+        ).value
+        .toLowerCase()
+        .trim();
+
+
+    const sort =
+        document.getElementById(
+            "bookSort"
+        ).value;
+
+
+    let filtered =
+        allBooks.filter(book => {
+
+            const matchesSearch =
+
+                !search ||
+
+                String(book.title || "")
+                    .toLowerCase()
+                    .includes(search)
+
+                ||
+
+                String(book.author || "")
+                    .toLowerCase()
+                    .includes(search)
+
+                ||
+
+                String(book.isbn || "")
+                    .toLowerCase()
+                    .includes(search)
+
+                ||
+
+                String(book.language || "")
+                    .toLowerCase()
+                    .includes(search);
+
+
+            const matchesCategory =
+
+                selectedCategory === "ALL"
+
+                ||
+
+                String(book.categoryId)
+                ===
+                String(selectedCategory);
+
+
+            return (
+                matchesSearch &&
+                matchesCategory
+            );
+
+        });
+
+
+    filtered.sort((a, b) => {
+
+        const first =
+            String(
+                a[sort] || ""
+            ).toLowerCase();
+
+
+        const second =
+            String(
+                b[sort] || ""
+            ).toLowerCase();
+
+
+        return first.localeCompare(
+            second
+        );
+
+    });
+
+
+    renderLibrary(filtered);
+
+}
+
+
+function selectCategory(categoryId, button) {
+
+    selectedCategory =
+        categoryId;
+
+
+    document
+        .querySelectorAll(
+            "#categoryStrip button"
+        )
+        .forEach(btn => {
+
+            btn.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    if (button) {
+        button.classList.add(
+            "active"
+        );
+    }
+
+
+    filterBooks();
+
+}
+
+
+async function loadCategoriesForLibrary() {
+
+    try {
+
+        const response =
+            await fetch(
+                API + "/categories"
+            );
+
+
+        if (!response.ok) {
+            return;
+        }
+
+
+        const categories =
+            await response.json();
+
+
+        renderCategoryButtons(
+            categories
+        );
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
+
+}
+
+
+function renderCategoryButtons(categories) {
+
+    const strip =
+        document.getElementById(
+            "categoryStrip"
+        );
+
+
+    strip.innerHTML = `
+
+        <button
+            class="active"
+            onclick="
+            selectCategory(
+                'ALL',
+                this
+            )">
+
+            All books
+
+        </button>
+
+    `;
+
+
+    categories.forEach(category => {
+
+        strip.innerHTML += `
+
+            <button
+                onclick="
+                selectCategory(
+                    '${category.categoryId}',
+                    this
+                )">
+
+                ${category.name}
+
+            </button>
+
+        `;
+
+    });
+
+}
+
+
+function viewBook(id) {
+
+    const book =
+        allBooks.find(
+            item =>
+                item.bookId === id
+        );
+
+
+    if (!book) {
+        return;
+    }
+
+
+    const content =
+        document.getElementById(
+            "bookModalContent"
+        );
+
+
+    content.innerHTML = `
+
+        <div class="eyebrow">
+            BOOK DETAILS
+        </div>
+
+        <h2
+            style="
+            font-family:Georgia,serif;
+            color:#234d39;
+            margin:10px 0 15px;">
+            ${book.title || "Untitled"}
+        </h2>
+
+        <div class="detail">
+            <b>Author</b>
+            ${book.author || "-"}
+        </div>
+
+        <div class="detail">
+            <b>ISBN</b>
+            ${book.isbn || "-"}
+        </div>
+
+        <div class="detail">
+            <b>Language</b>
+            ${book.language || "-"}
+        </div>
+
+        <div class="detail">
+            <b>Category ID</b>
+            ${book.categoryId || "-"}
+        </div>
+
+        <div class="detail">
+            <b>Status</b>
+            ${book.status || "-"}
+        </div>
+
+        <div class="detail">
+            <b>Description</b>
+            ${book.description || "-"}
+        </div>
+
+    `;
+
+
+    document
+        .getElementById(
+            "bookModal"
+        )
+        .classList.add("show");
+
+}
+
+
+function closeBookModal() {
+
+    document
+        .getElementById(
+            "bookModal"
+        )
+        .classList.remove("show");
+
+}
+
+
+/* ==========================================
+   START APPLICATION
+========================================== */
+
+loadLibrary();
+
+getDashboard().catch(() => {
+
+    const element =
+        document.getElementById(
+            "recent-requests"
+        );
+
+
+    if (element) {
+
+        element.innerHTML = `
+
+            <div class="dashboard-empty">
+
+                Dashboard data is unavailable.
+                Check that the server is running.
+
+            </div>
+
+        `;
+
+    }
+
+});
+
+</script>
 
 </body>
 
